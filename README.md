@@ -1,1 +1,1 @@
-# SkillFactoryD10
+ДЗ к модулю D10
