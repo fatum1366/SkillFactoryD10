@@ -1,0 +1,24 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+
+{% block title %}
+Post
+{% endblock title %}
+
+{% block content %}
+<h3>{{ post.post_title|censor }}</h3>
+<h5>{{ post.post_time|date:'j M Y' }} | Author:{{ new.author }}</h5>
+{% if post.post_categories.all %}
+    <hr>
+    <h8>Категории:
+        {% for category in post.post_categories.all %}
+            <a href="{% url 'category_list' category.id %}">{{category}}</a>
+        {% endfor %}
+    </h8>
+{% endif %}
+<hr>
+<h5>{{ post.post_text|censor }}</h5>
+<hr>
+<a class="nav-link" href="/NewsPortal/{{post.id}}/edit">Изменить</a>
+{% endblock content %}
